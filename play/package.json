@@ -18,7 +18,7 @@
     "dev": "cross-env concurrently --kill-others-on-fail \"npm:dev-front\" \"npm:typesafe-i18n-watch\" \"npm:watch-iframe-api\" \"npm:svelte-check-watch\" \"npm:dev-pusher\"",
     "dev-front": "cross-env vite",
     "dev-pusher": "TSX_TSCONFIG_PATH=tsconfig-pusher.json tsx watch --clear-screen=false --inspect=0.0.0.0:9229 ./src/server.ts",
-    "prebuild": "npm run typesafe-i18n",
+    "prebuild": "npm --prefix ../messages ci && npm --prefix ../messages run ts-proto && npm run typesafe-i18n",
     "build": "echo \"Compiling with options: $NODE_OPTIONS \" && cross-env vite build",
     "typecheck": "cross-env tsc --noEmit",
     "profile": "if [ -n \"$STARTUP_COMMAND\" ]; then sh -c \"$STARTUP_COMMAND\"; fi && TSX_TSCONFIG_PATH=tsconfig-pusher.json node --prof --import tsx ./src/server.ts",
