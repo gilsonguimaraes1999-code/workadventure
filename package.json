@@ -1,0 +1,19 @@
+{
+  "name": "workadventure",
+  "private": true,
+  "devDependencies": {
+    "patch-package": "^8.0.1",
+    "typescript": "^5.9.3"
+  },
+  "scripts": {
+    "postinstall": "patch-package || echo 'patch-package not found. Maybe you are installing only a subproject without it (e.g. a scoped `npm ci --workspace`); patches are only needed for the play build.'"
+  },
+  "workspaces": [
+    "play",
+    "back",
+    "map-storage",
+    "libs/*",
+    "uploader",
+    "play/packages/iframe-api-typings"
+  ]
+}
